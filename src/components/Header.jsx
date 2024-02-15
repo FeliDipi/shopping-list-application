@@ -5,12 +5,12 @@ import ListMenu from "./ListMenu.jsx";
 
 const Header = () =>
 {
-    return (
-        <header className="list-header">
-            <ListMenuButton/>
-            <ListMenu/>
-        </header>
-    );
-}
+	return (
+		<header className="list-header">
+			<ListMenuButton/>
+			<ListMenu/>
+		</header>
+	);
+};
 
 export default Header;

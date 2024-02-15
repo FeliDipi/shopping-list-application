@@ -1,0 +1,74 @@
+{
+    "tickets":[
+        {
+            "id":0,
+            "productName":"Coca cola",
+            "productPrice":1000,
+            "productAmount":10,
+            "isSpent":false
+        },
+        {
+            "id":1,
+            "productName":"Leche",
+            "productPrice":500,
+            "productAmount":5,
+            "isSpent":true
+        },
+        {
+            "id":2,
+            "productName":"Coca cola",
+            "productPrice":750.25,
+            "productAmount":10,
+            "isSpent":false
+        },
+        {
+            "id":3,
+            "productName":"Leche",
+            "productPrice":100,
+            "productAmount":5,
+            "isSpent":false
+        },
+        {
+            "id":4,
+            "productName":"Coca cola",
+            "productPrice":300,
+            "productAmount":10,
+            "isSpent":false
+        },
+        {
+            "id":5,
+            "productName":"Leche",
+            "productPrice":500,
+            "productAmount":5,
+            "isSpent":false
+        },
+        {
+            "id":6,
+            "productName":"Coca cola",
+            "productPrice":1000,
+            "productAmount":10,
+            "isSpent":true
+        },
+        {
+            "id":7,
+            "productName":"Leche",
+            "productPrice":500,
+            "productAmount":5,
+            "isSpent":true
+        },
+        {
+            "id":8,
+            "productName":"Coca cola",
+            "productPrice":1000,
+            "productAmount":10,
+            "isSpent":false
+        },
+        {
+            "id":9,
+            "productName":"Leche",
+            "productPrice":500,
+            "productAmount":5,
+            "isSpent":false
+        }
+    ]
+}

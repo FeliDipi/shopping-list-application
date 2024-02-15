@@ -1,0 +1,23 @@
+.list-button-add
+{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #1DD1A1;
+
+    border: none;
+}
+
+.list-button-add-icon
+{
+    width: 32px;
+    height: 32px;
+
+    color:#222F3E;
+}

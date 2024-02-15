@@ -4,16 +4,15 @@
     justify-content: space-between;
     align-items: center;
 
-    width: 350px;
-    height: 45px;
+    width: 100%;
 
-    padding: 10px 20px;
+    padding: 0.75rem 2rem;
 
-    border-radius: 50px;
+    border-radius: 25px;
 
     color:#FFF;
 
-    font-size: 15px;
+    font-size: 1rem;
     font-weight: 400;
 
     background-color: #222F3E;
