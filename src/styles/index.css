@@ -13,6 +13,8 @@
     list-style: none;
 
     letter-spacing: 0.125rem;
+    
+    scroll-behavior: smooth;
 }
 
 *::before, *::after

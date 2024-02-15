@@ -1,3 +1,4 @@
+import { ListInputProvider } from "../providers/ListInputContent.jsx";
 import ListButtonAdd from "./ListButtonAdd.jsx";
 import ListInput from "./ListInput.jsx";
 
@@ -5,8 +6,10 @@ const ListControl = () =>
 {
 	return (
 		<main className="list-control">
-			<ListInput/>
-			<ListButtonAdd/>
+			<ListInputProvider>
+				<ListInput/>
+				<ListButtonAdd/>
+			</ListInputProvider>
 		</main>
 	);
 };
