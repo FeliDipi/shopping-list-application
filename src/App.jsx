@@ -1,7 +1,5 @@
 import "./styles/App.css";
 
-import {tickets as ticketsInitial} from "./mock/tickets.json";
-
 import Header from "./components/Header.jsx";
 import List from "./components/List.jsx";
 import Footer from "./components/Footer.jsx";
@@ -11,8 +9,8 @@ const App = () => {
 	return (
 		<main className="list-app">
 			<Header/>
-			<List tickets={ticketsInitial}/>
-			<Footer tickets={ticketsInitial}/>
+			<List/>
+			<Footer/>
 			<ListControl/>
 		</main>
 	);

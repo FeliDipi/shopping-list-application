@@ -1,9 +1,13 @@
-const Footer = ({tickets}) =>
+import { useList } from "../hooks/useList.js";
+
+const Footer = () =>
 {
+	const {list} = useList();
+
 	var estimatedValue = 0;
 	var spentValue = 0;
 
-	tickets.forEach(ticket =>
+	list.forEach(ticket =>
 	{
 		var productValue =ticket.productPrice*ticket.productAmount;
 

@@ -1,11 +1,14 @@
+import { useList } from "../hooks/useList.js";
 import ListTicket from "./ListTicket.jsx";
 
-const List = ({tickets}) =>
+const List = () =>
 {
+	const {list} = useList();
+
 	return (
 		<ul className="list">
 			{
-				tickets.map(ticket => (<ListTicket key={ticket.id} {...ticket}/>))
+				list.map(ticket => (<ListTicket key={ticket.id} {...ticket}/>))
 			}
 		</ul>
 	);
