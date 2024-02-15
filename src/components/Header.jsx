@@ -1,5 +1,3 @@
-import "../styles/Header.css";
-
 import ListMenuButton from "./ListMenuButton.jsx";
 import ListMenu from "./ListMenu.jsx";
 

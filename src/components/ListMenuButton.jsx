@@ -1,5 +1,4 @@
 import { Icon } from "@iconify/react";
-import "../styles/ListMenuButton.css";
 
 const ListMenuButton = () =>
 {

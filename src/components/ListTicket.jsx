@@ -1,5 +1,3 @@
-import "../styles/ListTicket.css";
-
 const ListTicket = ({id,productName,productPrice,productAmount,isSpent}) =>
 {
 	const ticketStyle = isSpent?"list-ticket list-ticket-spent":"list-ticket";

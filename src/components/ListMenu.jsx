@@ -1,5 +1,3 @@
-import "../styles/ListMenu.css";
-
 const ListMenu = () =>
 {
 	return (

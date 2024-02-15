@@ -1,5 +1,3 @@
-import "../styles/Footer.css";
-
 const Footer = ({tickets}) =>
 {
 	var estimatedValue = 0;

@@ -1,4 +1,3 @@
-import "../styles/List.css";
 import ListTicket from "./ListTicket.jsx";
 
 const List = ({tickets}) =>
