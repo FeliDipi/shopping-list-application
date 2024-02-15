@@ -1,0 +1,12 @@
+.list-app
+{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    overflow: hidden;
+
+    gap: 20px;
+}
