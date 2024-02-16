@@ -3,12 +3,12 @@ import ListTicket from "./ListTicket.jsx";
 
 const List = () =>
 {
-	const {list} = useList();
+	const {list, ticketOnEdit} = useList();
 
 	return (
 		<ul className="list">
 			{
-				list.map(ticket => (<ListTicket key={ticket.id} {...ticket}/>))
+				list.map(ticket => (<ListTicket key={ticket.id} {...ticket} onEdit={ticketOnEdit===ticket.id}/>))
 			}
 		</ul>
 	);

@@ -291,10 +291,27 @@
     border: none;
 }
 
-.list-button-add-icon
+.list-button-add-icon,
+.list-button-delete-icon
 {
     width: 32px;
     height: 32px;
 
     color:#222F3E;
+}
+
+.list-button-delete
+{
+    width: 48px;
+    height: 48px;
+
+    border-radius: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #FF6B6B;
+
+    border: none;
 }

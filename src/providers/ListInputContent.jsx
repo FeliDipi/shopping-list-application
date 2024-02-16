@@ -45,6 +45,7 @@ export const ListInputProvider = ({children}) =>
     return (
         <ListInputContext.Provider value={{
             productInfo,
+			setProductInfo,
             handleName,
             handlePrice,
             handleAmount

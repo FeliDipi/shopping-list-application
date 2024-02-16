@@ -38,21 +38,37 @@ export const ListProvider = ({children}) =>
 		}
 	};
 
-	const editTicket = (ticket) =>
+	const editTicket = (ticketId, ticketInfo) =>
 	{
+		const ticketIndex = list.findIndex(({id})=>id===ticketId);
 
+		if(ticketIndex>=0)
+		{
+			const newList = [...list];
+
+			newList[ticketIndex].productName = ticketInfo.productName;
+			newList[ticketIndex].productPrice = ticketInfo.productPrice;
+			newList[ticketIndex].productAmount = ticketInfo.productAmount;
+
+			setList(newList);
+		}
 	};
 
-	const removeTicket = (ticket) =>
+	const removeTicket = (ticketId) =>
 	{
+		const newList = list.filter(({id}) => ticketId !== id);
 
+		setList(newList);
+		setTicketOnEdit(null);
 	};
 
 	return (
 		<ListContext.Provider value={{
 			list,
+			ticketOnEdit,
 			addTicket,
 			spentTicket,
+			setTicketOnEdit,
 			editTicket,
 			removeTicket
 		}}>
