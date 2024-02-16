@@ -1,12 +1,10 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { useShoppingList } from "../hooks/useShoppingList.js";
-import { useListInput } from "../hooks/useListInput.js";
 
 const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 {
 	const { spentTicket, setTicketOnEdit } = useShoppingList();
-	const { setProductInfo } = useListInput();
 
 	const [longPressed, setLongPressed] = useState(false);
 	const timerRef = useRef(null);
@@ -15,7 +13,6 @@ const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 	{
 		timerRef.current = setTimeout(() => {
 			setLongPressed(true);
-			setProductInfo({"name":name,"price":price,"amount":amount});
 			setTicketOnEdit(id);
 		}, 500);
 	};
@@ -32,7 +29,6 @@ const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 
 		if(onEdit)
 		{
-			setProductInfo({"name":"","price":"","amount":""});
 			setTicketOnEdit(null);
 		}
 		else

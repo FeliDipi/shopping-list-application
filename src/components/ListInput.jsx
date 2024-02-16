@@ -1,12 +1,7 @@
-import { useListInput } from "../hooks/useListInput.js";
-
 const ListInput = () =>
 {
-	const {productInfo,handleName,handlePrice,handleAmount} = useListInput();
-
 	const handleNameInput = (event) =>
 	{
-		handleName(event.target.value);
 	}
 
 	const handlePriceInput = (event) =>
@@ -14,8 +9,6 @@ const ListInput = () =>
 		const value = event.target.value;
 
 		if(isNaN(value)) return;
-
-		handlePrice(value);
 	}
 
 	const handleAmountInput = (event) =>
@@ -23,8 +16,6 @@ const ListInput = () =>
 		const value = event.target.value;
 
 		if(isNaN(value)) return;
-
-		handleAmount(value);
 	}
 
 	const prefixFormatter = (str, prefix) =>
@@ -34,9 +25,9 @@ const ListInput = () =>
 
 	return (
 		<div className="list-input">
-			<input onChange={handleNameInput} className="list-input-name" type="text" placeholder="Product..." value={productInfo.name}/>
-			<input onChange={handlePriceInput} className="list-input-price" type="text" placeholder="$0" value={prefixFormatter(productInfo.price,"$")}/>
-			<input onChange={handleAmountInput} className="list-input-amount" type="text" placeholder="x0" value={prefixFormatter(productInfo.amount,"x")}/>
+			<input onChange={handleNameInput} className="list-input-name" type="text" placeholder="Product..." value={""}/>
+			<input onChange={handlePriceInput} className="list-input-price" type="text" placeholder="$0" value={prefixFormatter("","$")}/>
+			<input onChange={handleAmountInput} className="list-input-amount" type="text" placeholder="x0" value={prefixFormatter("","x")}/>
 		</div>
 	);
 };
