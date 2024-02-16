@@ -1,11 +1,11 @@
 import { useRef } from "react";
 import { useState } from "react";
-import { useList } from "../hooks/useList.js";
+import { useShoppingList } from "../hooks/useShoppingList.js";
 import { useListInput } from "../hooks/useListInput.js";
 
-const ListTicket = ({id,productName,productPrice,productAmount,isSpent,onEdit}) =>
+const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 {
-	const { spentTicket, setTicketOnEdit } = useList();
+	const { spentTicket, setTicketOnEdit } = useShoppingList();
 	const { setProductInfo } = useListInput();
 
 	const [longPressed, setLongPressed] = useState(false);
@@ -15,7 +15,7 @@ const ListTicket = ({id,productName,productPrice,productAmount,isSpent,onEdit}) 
 	{
 		timerRef.current = setTimeout(() => {
 			setLongPressed(true);
-			setProductInfo({"productName":productName,"productPrice":productPrice,"productAmount":productAmount});
+			setProductInfo({"name":name,"price":price,"amount":amount});
 			setTicketOnEdit(id);
 		}, 500);
 	};
@@ -32,7 +32,7 @@ const ListTicket = ({id,productName,productPrice,productAmount,isSpent,onEdit}) 
 
 		if(onEdit)
 		{
-			setProductInfo({"productName":"","productPrice":"","productAmount":""});
+			setProductInfo({"name":"","price":"","amount":""});
 			setTicketOnEdit(null);
 		}
 		else
@@ -51,8 +51,8 @@ const ListTicket = ({id,productName,productPrice,productAmount,isSpent,onEdit}) 
 			onTouchEnd={handleStopInteract}
 			onTouchCancel={handleStopInteract}
 			className={ticketStyle}>
-			<p className="list-ticket-info">{productName} x {productAmount}</p>
-			<p className="list-ticket-price">${productPrice*productAmount}</p>
+			<p className="list-ticket-info">{name} x {amount}</p>
+			<p className="list-ticket-price">${price*amount}</p>
 		</li>
 	);
 };

@@ -1,0 +1,11 @@
+{
+    "tickets":[
+        {
+            "id":0,
+            "name":"Coca cola",
+            "price":1000,
+            "amount":10,
+            "isSpent":false
+        }
+    ]
+}

@@ -1,15 +1,15 @@
-import { useList } from "../hooks/useList.js";
+import { useShoppingList } from "../hooks/useShoppingList.js";
 
 const Footer = () =>
 {
-	const {list} = useList();
+	const {tickets} = useShoppingList();
 
 	var estimatedValue = 0;
 	var spentValue = 0;
 
-	list.forEach(ticket =>
+	tickets.forEach(ticket =>
 	{
-		var productValue =ticket.productPrice*ticket.productAmount;
+		var productValue =ticket.price*ticket.amount;
 
 		estimatedValue+=productValue;
 

@@ -1,4 +1,3 @@
-import { useList } from "../hooks/useList.js";
 import { useListInput } from "../hooks/useListInput.js";
 
 const ListInput = () =>
@@ -35,9 +34,9 @@ const ListInput = () =>
 
 	return (
 		<div className="list-input">
-			<input onChange={handleNameInput} className="list-input-name" type="text" placeholder="Product..." value={productInfo.productName}/>
-			<input onChange={handlePriceInput} className="list-input-price" type="text" placeholder="$0" value={prefixFormatter(productInfo.productPrice,"$")}/>
-			<input onChange={handleAmountInput} className="list-input-amount" type="text" placeholder="x0" value={prefixFormatter(productInfo.productAmount,"x")}/>
+			<input onChange={handleNameInput} className="list-input-name" type="text" placeholder="Product..." value={productInfo.name}/>
+			<input onChange={handlePriceInput} className="list-input-price" type="text" placeholder="$0" value={prefixFormatter(productInfo.price,"$")}/>
+			<input onChange={handleAmountInput} className="list-input-amount" type="text" placeholder="x0" value={prefixFormatter(productInfo.amount,"x")}/>
 		</div>
 	);
 };

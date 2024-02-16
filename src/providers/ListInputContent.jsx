@@ -4,15 +4,15 @@ export const ListInputContext = createContext();
 
 export const ListInputProvider = ({children}) =>
 {
-    const [productInfo, setProductInfo] = useState({productName:"",productPrice:0,productAmount:0});
+    const [productInfo, setProductInfo] = useState({name:"",price:0,amount:0});
 
 	const handleName = (name) =>
 	{
 		const newProductInfo = 
 		{
-			"productName":name,
-			"productPrice":productInfo.productPrice,
-			"productAmount":productInfo.productAmount
+			"name":name,
+			"price":productInfo.price,
+			"amount":productInfo.amount
 		}
 
 		setProductInfo(newProductInfo);
@@ -22,9 +22,9 @@ export const ListInputProvider = ({children}) =>
 	{
 		const newProductInfo = 
 		{
-			"productName":productInfo.productName,
-			"productPrice":price,
-			"productAmount":productInfo.productAmount
+			"name":productInfo.name,
+			"price":price,
+			"amount":productInfo.amount
 		}
 
 		setProductInfo(newProductInfo);
@@ -34,9 +34,9 @@ export const ListInputProvider = ({children}) =>
 	{
 		const newProductInfo = 
 		{
-			"productName":productInfo.productName,
-			"productPrice":productInfo.productPrice,
-			"productAmount":amount
+			"name":productInfo.name,
+			"price":productInfo.price,
+			"amount":amount
 		}
 
 		setProductInfo(newProductInfo);

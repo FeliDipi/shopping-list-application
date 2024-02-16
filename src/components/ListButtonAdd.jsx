@@ -1,11 +1,11 @@
 import { Icon } from "@iconify/react";
 import { useListInput } from "../hooks/useListInput.js";
-import { useList } from "../hooks/useList.js";
+import { useShoppingList } from "../hooks/useShoppingList.js";
 
 const ListButtonAdd = () =>
 {
 	const {productInfo} = useListInput();
-	const {addTicket} = useList();
+	const {addTicket} = useShoppingList();
 
 	const handleAddTicket = () =>
 	{

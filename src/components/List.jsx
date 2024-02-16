@@ -1,14 +1,14 @@
-import { useList } from "../hooks/useList.js";
+import { useShoppingList } from "../hooks/useShoppingList.js";
 import ListTicket from "./ListTicket.jsx";
 
 const List = () =>
 {
-	const {list, ticketOnEdit} = useList();
+	const {tickets, ticketOnEdit} = useShoppingList();
 
 	return (
 		<ul className="list">
 			{
-				list.map(ticket => (<ListTicket key={ticket.id} {...ticket} onEdit={ticketOnEdit===ticket.id}/>))
+				tickets.map(ticket => (<ListTicket key={ticket.id} {...ticket} onEdit={ticketOnEdit===ticket.id}/>))
 			}
 		</ul>
 	);

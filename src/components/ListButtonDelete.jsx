@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react";
-import { useList } from "../hooks/useList.js";
+import { useShoppingList } from "../hooks/useShoppingList.js";
 
 const ListButtonDelete = () =>
 {
-    const {ticketOnEdit, removeTicket} = useList();
+    const {ticketOnEdit, removeTicket} = useShoppingList();
 
     const handleDelete = () =>
     {
