@@ -4,7 +4,7 @@ import { useShoppingList } from "../hooks/useShoppingList.js";
 
 const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 {
-	const { spentTicket, setTicketOnEdit } = useShoppingList();
+	const { updateTicket, editTicket } = useShoppingList();
 
 	const [longPressed, setLongPressed] = useState(false);
 	const timerRef = useRef(null);
@@ -13,7 +13,7 @@ const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 	{
 		timerRef.current = setTimeout(() => {
 			setLongPressed(true);
-			setTicketOnEdit(id);
+			editTicket(id);
 		}, 500);
 	};
 
@@ -29,11 +29,19 @@ const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 
 		if(onEdit)
 		{
-			setTicketOnEdit(null);
+			editTicket(null);
 		}
 		else
 		{
-			spentTicket(id,!isSpent);
+			const ticketInfo = {
+				"id":id,
+				"name":name,
+				"price":price,
+				"amount":amount,
+				"isSpent":!isSpent
+			};
+
+			updateTicket(ticketInfo);
 		}
 	};
 

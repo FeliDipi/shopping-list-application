@@ -7,8 +7,11 @@ export const ShoppingListProvider = ({children}) =>
 {
 	const dataModal = new Modal();
 
+	const blankTicket = {name:"",price:"",amount:""};
+
 	const [tickets, setTickets] = useState(dataModal.fetchData());
 	const [ticketOnEdit, setTicketOnEdit] = useState(null);
+	const [ticketInput, setTicketInput] = useState(blankTicket);
 
 	const validTicket = (ticket) =>
 	{
@@ -16,7 +19,7 @@ export const ShoppingListProvider = ({children}) =>
 		return name.length>0 && price>0 && amount>0;
 	}
 
-	const generateUnicId = () =>
+	const generateUnitId = () =>
 	{
 		return Math.random();
 	}
@@ -24,7 +27,7 @@ export const ShoppingListProvider = ({children}) =>
 	const createNewTicket = (ticket) =>
 	{
 		const newTicket = {
-			"id":generateUnicId(),
+			"id":generateUnitId(),
 			"name":ticket.name,
 			"price":ticket.price,
 			"amount":ticket.amount,
@@ -34,45 +37,41 @@ export const ShoppingListProvider = ({children}) =>
 		return newTicket;
 	}
 
-	const addTicket = (ticket) =>
+	const addTicket = () =>
 	{
-		if(!validTicket(ticket)) return;
+		if(!validTicket(ticketInput)) return;
 
-		const newTickets = [createNewTicket(ticket), ...tickets];
+		const newTickets = [createNewTicket(ticketInput), ...tickets];
 
 		setTickets(newTickets);
+		setTicketInput(blankTicket);
+
 		dataModal.saveData(newTickets);
 	};
 
-	const spentTicket = (ticketId, isSpent) =>
+	const updateTicket = (ticket) =>
 	{
-		const ticketIndex = tickets.findIndex(ticket => ticket.id === ticketId);
+		const ticketIndex = tickets.findIndex(({id}) => id === ticket.id);
 
 		if(ticketIndex>=0)
 		{
 			const newTickets = [...tickets];
-			newTickets[ticketIndex].isSpent = isSpent;
-
+			newTickets[ticketIndex] = ticket;
+	
 			setTickets(newTickets);
 			dataModal.saveData(newTickets);
 		}
-	};
+	}
 
-	const editTicket = (ticketId, ticket) =>
+	const editTicket = (ticketId) =>
 	{
-		const ticketIndex = tickets.findIndex(({id})=>id===ticketId);
+		const ticket = tickets.find(({id}) => id === ticketId);
 
-		if(ticketIndex>=0)
-		{
-			const newTickets = [...tickets];
+		setTicketOnEdit(ticket);
 
-			newTickets[ticketIndex].name = ticket.name;
-			newTickets[ticketIndex].price = ticket.price;
-			newTickets[ticketIndex].amount = ticket.amount;
+		const newInput = ticketId?{"name":ticket.name,"price":ticket.price,"amount":ticket.amount}:blankTicket;
 
-			setTickets(newTickets);
-			dataModal.saveData(newTickets);
-		}
+		setTicketInput(newInput);
 	};
 
 	const removeTicket = (ticketId) =>
@@ -85,15 +84,26 @@ export const ShoppingListProvider = ({children}) =>
 		dataModal.saveData(newTickets);
 	};
 
+	const finishEditTicket = () =>
+	{
+		if(!validTicket(ticketInput)) return;
+
+		const ticketEdited = {...ticketOnEdit, name:ticketInput.name,price:ticketInput.price,amount:ticketInput.amount};
+		
+		updateTicket(ticketEdited);
+	}
+
 	return (
 		<ShoppingListContext.Provider value={{
 			tickets,
 			ticketOnEdit,
+			ticketInput,
 			addTicket,
-			spentTicket,
-			setTicketOnEdit,
+			updateTicket,
 			editTicket,
-			removeTicket
+			removeTicket,
+			setTicketInput,
+			finishEditTicket
 		}}>
 			{children}
 		</ShoppingListContext.Provider>

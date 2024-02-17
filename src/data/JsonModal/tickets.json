@@ -6,6 +6,27 @@
             "price":1000,
             "amount":10,
             "isSpent":false
+        },
+        {
+            "id":1,
+            "name":"Coca cola",
+            "price":1000,
+            "amount":10,
+            "isSpent":false
+        },
+        {
+            "id":2,
+            "name":"Coca cola",
+            "price":1000,
+            "amount":10,
+            "isSpent":false
+        },
+        {
+            "id":3,
+            "name":"Coca cola",
+            "price":1000,
+            "amount":10,
+            "isSpent":false
         }
     ]
 }
