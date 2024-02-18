@@ -7,4 +7,10 @@ export class DataModal extends IDataModal
     {
         return tickets;
     }
+
+    saveData(data)
+    {
+        //Just show the new data object
+        console.log(data);
+    }
 }
