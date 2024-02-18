@@ -3,15 +3,10 @@ import { useShoppingList } from "../hooks/useShoppingList.js";
 
 const ListButtonDelete = () =>
 {
-    const {ticketOnEdit, removeTicket} = useShoppingList();
-
-    const handleDelete = () =>
-    {
-        removeTicket(ticketOnEdit);
-    }
+    const {removeTicket} = useShoppingList();
 
     return (      
-        <button onClick={handleDelete} className="list-button-delete">
+        <button onClick={removeTicket} className="list-button-delete">
             <Icon className="list-button-delete-icon" icon="tabler:trash-filled" />
         </button>      
     )

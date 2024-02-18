@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
-import { Modal } from "../data/JsonModal/JsonModal.js";
+import { DataModal } from "../data/LocalStorageModal/DataModal.js";
 
 export const ShoppingListContext = createContext();
 
 export const ShoppingListProvider = ({children}) =>
 {
-	const dataModal = new Modal();
+	const dataModal = new DataModal();
 
 	const blankTicket = {name:"",price:"",amount:""};
 
@@ -74,11 +74,12 @@ export const ShoppingListProvider = ({children}) =>
 		setTicketInput(newInput);
 	};
 
-	const removeTicket = (ticketId) =>
+	const removeTicket = () =>
 	{
-		const newTickets = tickets.filter(({id}) => ticketId !== id);
+		const newTickets = tickets.filter(({id}) => ticketOnEdit.id !== id);
 
 		setTickets(newTickets);
+		setTicketInput(blankTicket);
 		setTicketOnEdit(null);
 
 		dataModal.saveData(newTickets);

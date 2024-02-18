@@ -1,4 +1,4 @@
-export class IModal 
+export class IDataModal 
 {
     fetchData(){}
     saveData(data){}

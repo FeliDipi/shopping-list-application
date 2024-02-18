@@ -8,7 +8,7 @@ const List = () =>
 	return (
 		<ul className="list">
 			{
-				tickets.map(ticket => (<ListTicket key={ticket.id} {...ticket} onEdit={ticketOnEdit && ticketOnEdit.id===ticket.id}/>))
+				tickets.map(ticket => (<ListTicket key={ticket.id} ticketData={ticket} isOnEdit={ticketOnEdit && ticketOnEdit.id===ticket.id}/>))
 			}
 		</ul>
 	);

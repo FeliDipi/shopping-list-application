@@ -8,8 +8,6 @@ const ListInput = () =>
 	{
 		const value = event.target.value;
 
-		if(value.length === 0) return;
-
 		const newInput = { ...ticketInput, name: value };
 		setTicketInput(newInput);
 	}

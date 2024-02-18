@@ -2,8 +2,10 @@ import { useRef } from "react";
 import { useState } from "react";
 import { useShoppingList } from "../hooks/useShoppingList.js";
 
-const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
+const ListTicket = ({ticketData,isOnEdit}) =>
 {
+	const {id, name, price, amount, isSpent} = ticketData;
+
 	const { updateTicket, editTicket } = useShoppingList();
 
 	const [longPressed, setLongPressed] = useState(false);
@@ -11,6 +13,8 @@ const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 
 	const handleInteract = () =>
 	{
+		if(isSpent) return;
+
 		timerRef.current = setTimeout(() => {
 			setLongPressed(true);
 			editTicket(id);
@@ -27,28 +31,21 @@ const ListTicket = ({id,name,price,amount,isSpent,onEdit}) =>
 			return;
 		}
 
-		if(onEdit)
+		if(isOnEdit)
 		{
 			editTicket(null);
+			return;
 		}
-		else
-		{
-			const ticketInfo = {
-				"id":id,
-				"name":name,
-				"price":price,
-				"amount":amount,
-				"isSpent":!isSpent
-			};
 
-			updateTicket(ticketInfo);
-		}
+		const newTicketData = {...ticketData, isSpent:!isSpent};
+		updateTicket(newTicketData);
+
 	};
 
 	var ticketStyle = "list-ticket";
 
 	if(isSpent) ticketStyle += " list-ticket-spent";
-	else if(onEdit) ticketStyle += " list-ticket-edit";
+	else if(isOnEdit) ticketStyle += " list-ticket-edit";
 
 	return (
 		<li onTouchStart={handleInteract}
