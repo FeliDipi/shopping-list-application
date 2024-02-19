@@ -116,11 +116,27 @@
     }
 }
 
+.scroll 
+{
+    animation: scrollLeft 10s linear infinite; /* Ajusta la velocidad de desplazamiento según necesites */
+}
+
+@keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+}
+
 .list-ticket
 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    overflow: hidden;
 
     width: 100%;
 
@@ -138,6 +154,12 @@
 
     animation: ticketSpawn 0.25s ease-in-out;
     transition: all 0.1s ease-in-out;
+}
+
+.list-ticket-info
+{
+    display: flex;
+    gap: 1rem;
 }
 
 .list-ticket-price
@@ -160,9 +182,24 @@
     color:#222F3E;
 }
 
-.list-ticket-spent .list-ticket-info
+.list-ticket-spent .list-ticket-name
 {
     text-decoration: line-through;
+}
+
+.list-ticket-name-container
+{
+    position: relative;
+
+    width: 150px;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.list-ticket-name
+{
+    white-space: nowrap;
 }
 
 /* FOOTER */

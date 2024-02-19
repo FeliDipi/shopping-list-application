@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useState } from "react";
 import { useShoppingList } from "../hooks/useShoppingList.js";
+import TextAutoScroll from "./TextAutoScroll.jsx";
 
 const ListTicket = ({ticketData,isOnEdit}) =>
 {
@@ -48,11 +49,15 @@ const ListTicket = ({ticketData,isOnEdit}) =>
 	else if(isOnEdit) ticketStyle += " list-ticket-edit";
 
 	return (
-		<li onTouchStart={handleInteract}
-			onTouchEnd={handleStopInteract}
-			onTouchCancel={handleStopInteract}
+		<li 
+			onPointerDown={handleInteract}
+			onPointerUp={handleStopInteract}
+			onPointerCancel={handleStopInteract}
 			className={ticketStyle}>
-			<p className="list-ticket-info">{name} x {amount}</p>
+			<div className="list-ticket-info">
+				<TextAutoScroll>{name}</TextAutoScroll>
+				<p className="list-ticket-amount"> x{amount}</p>
+			</div>
 			<p className="list-ticket-price">${price*amount}</p>
 		</li>
 	);
