@@ -63,13 +63,11 @@ export const ShoppingListProvider = ({children}) =>
 		}
 	}
 
-	const editTicket = (ticketId) =>
+	const editTicket = (ticket) =>
 	{
-		const ticket = tickets.find(({id}) => id === ticketId);
-
 		setTicketOnEdit(ticket);
 
-		const newInput = ticketId?{"name":ticket.name,"price":ticket.price,"amount":ticket.amount}:blankTicket;
+		const newInput = ticket?{"name":ticket.name,"price":ticket.price,"amount":ticket.amount}:blankTicket;
 
 		setTicketInput(newInput);
 	};
