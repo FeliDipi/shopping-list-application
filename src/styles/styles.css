@@ -1,3 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*
+{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    list-style: none;
+
+    letter-spacing: 0.125rem;
+    
+    scroll-behavior: smooth;
+}
+
+*::before, *::after
+{
+    box-sizing: border-box;
+}
+
+:root
+{
+    --color-0: #222F3E;
+    --color-1: #FFF;
+    --color-2: #1DD1A1;
+    --color-3: #54A0FF;
+    --color-4: #FF6B6B;
+
+    --background-color-0: rgb(200, 214, 229,0.5);
+    --background-color-1: rgba(34, 47, 62, 0.75);
+
+    --background-blur: blur(4px);
+
+    --box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+body
+{
+    background-image: url(../assets/images/background.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 150%;
+
+    display: flex;
+    justify-content: center;
+    align-items: top;
+
+    width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
 .list-app
 {
     width: 100%;
@@ -33,10 +90,10 @@
     border: none;
     border-radius: 100%;
 
-    background-color: rgb(200, 214, 229,0.5);
-    backdrop-filter: blur(4px);
+    background-color: var(--background-color-0);
+    backdrop-filter: var(--background-blur);
 
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
 
     display: flex;
     justify-content: center;
@@ -48,7 +105,7 @@
     width: 25px;
     height: 25px;
 
-    color:#222F3E;
+    color:var(--color-0);
 }
 
 .list-menu
@@ -58,10 +115,10 @@
 
     border-radius: 25px;
 
-    background-color: rgb(200, 214, 229,0.5);
-    backdrop-filter: blur(4px);
+    background-color: var(--background-color-0);
+    backdrop-filter: var(--background-blur);
 
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
 
     display: flex;
     align-items: center;
@@ -82,10 +139,10 @@
 {
     border-radius: 25px;
 
-    background-color: rgba(200, 214, 229, 0.5);
-    backdrop-filter: blur(4px);
+    background-color: var(--background-color-0);
+    backdrop-filter: var(--background-blur);
 
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
 
     display: flex;
     flex-direction: column;
@@ -103,33 +160,9 @@
 
 /* LIST TICKET */
 
-@keyframes ticketSpawn {
-    0%
-    {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    100%
-    {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
 .scroll
 {
     mask: linear-gradient(90deg,transparent,white 10%,white 90%,transparent);
-}
-
-.scroll .list-ticket-name
-{
-    animation: scrollLeft 15s linear infinite; /* Ajusta la velocidad de desplazamiento según necesites */
-}
-
-@keyframes scrollLeft {
-    to {
-        transform: translateX(-50%);
-    }
 }
 
 .list-ticket
@@ -146,16 +179,13 @@
 
     border-radius: 25px;
 
-    color:#FFF;
+    color:var(--color-1);
 
     font-size: 1rem;
     font-weight: 400;
 
-    background-color: #222F3E;
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
-
-    animation: ticketSpawn 0.25s ease-in-out;
-    transition: all 0.1s ease-in-out;
+    background-color: var(--color-0);
+    box-shadow: var(--box-shadow);
 }
 
 .list-ticket-info
@@ -174,14 +204,14 @@
     transform: scale(0.95);
     margin: 10px 0px;
 
-    background-color: #54A0FF;
-    color:#222F3E;
+    background-color: var(--color-3);
+    color:var(--color-0);
 }
 
 .list-ticket-spent
 {
-    background-color: #1DD1A1;
-    color:#222F3E;
+    background-color: var(--color-2);
+    color:var(--color-0);
 }
 
 .list-ticket-spent .list-ticket-name
@@ -210,10 +240,10 @@
 {
     border-radius: 25px;
 
-    background-color: rgba(34, 47, 62, 0.75);
-    backdrop-filter: blur(4px);
+    background-color: var(--background-color-1);
+    backdrop-filter: var(--background-blur);
 
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
 
     display: grid;
     justify-content: center;
@@ -235,12 +265,12 @@
 
 .list-footer-estimated
 {
-    color:#fff;
+    color: var(--color-1);
 }
 
 .list-footer-spent
 {
-    color:#1DD1A1;
+    color:var(--color-2);
 }
 
 /* CONTROL */
@@ -265,10 +295,10 @@
 
     border-radius: 25px;
 
-    background-color: rgb(200, 214, 229,0.5);
-    backdrop-filter: blur(4px);
+    background-color: var(--background-color-0);
+    backdrop-filter: var(--background-blur);
 
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
 
     display: flex;
     align-items: center;
@@ -285,14 +315,14 @@
     padding: 1rem;
 
     background: none;
-    background-color: #222F3E;
+    background-color: var(--color-0);
 
-    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
 
     border: none;
-    border-radius: 25px;
+    border-radius: 15px;
 
-    color: #fff;
+    color: var(--color-1);
 }
 
 .list-input-price,
@@ -309,7 +339,7 @@
 
 .list-input input:focus
 {
-    outline-color: #1DD1A1;
+    outline-color: var(--color-2);
 }
 
 /* INPUT BUTTONS */
@@ -325,7 +355,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: #1DD1A1;
+    background-color: var(--color-2);
 
     border: none;
 }
@@ -336,7 +366,7 @@
     width: 32px;
     height: 32px;
 
-    color:#222F3E;
+    color:var(--color-0);
 }
 
 .list-button-delete
@@ -350,7 +380,7 @@
     align-items: center;
     justify-content: center;
 
-    background-color: #FF6B6B;
+    background-color: var(--color-4);
 
     border: none;
 }
