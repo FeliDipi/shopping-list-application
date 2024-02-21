@@ -2,7 +2,7 @@ import { useShoppingList } from "../hooks/useShoppingList";
 
 const ListInput = () =>
 {
-	const {ticketInput, setTicketInput, finishEditTicket} = useShoppingList();
+	const {ticketInput, setTicketInput} = useShoppingList();
 
 	const handleInputName = (event)=>
 	{
@@ -34,9 +34,9 @@ const ListInput = () =>
 
 	return (
 		<div className="list-input">
-			<input onBlur={finishEditTicket} onChange={handleInputName} className="list-input-name" type="text" placeholder="Product..." value={ticketInput.name}/>
-			<input onBlur={finishEditTicket} onChange={handleInputPrice} className="list-input-price" type="text" placeholder="$0" value={ticketInput.price}/>
-			<input onBlur={finishEditTicket} onChange={handleInputAmount} className="list-input-amount" type="text" placeholder="x0" value={ticketInput.amount}/>
+			<input onChange={handleInputName} className="list-input-name" type="text" placeholder="Product..." value={ticketInput.name}/>
+			<input onChange={handleInputPrice} className="list-input-price" type="text" placeholder="$0" value={ticketInput.price}/>
+			<input onChange={handleInputAmount} className="list-input-amount" type="text" placeholder="x0" value={ticketInput.amount}/>
 		</div>
 	);
 };

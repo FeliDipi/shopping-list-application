@@ -3,38 +3,50 @@ import { useShoppingList } from "../hooks/useShoppingList.js";
 import { motion } from "framer-motion";
 import { BTN_STATE } from "../utils/buttonStates.js";
 
-const ListButtonAdd = ({enable}) =>
+const ListButtonAdd = ({editMode}) =>
 {
-	const {addTicket} = useShoppingList();
+	const {addTicket, finishEditTicket} = useShoppingList();
 
 	const variants = 
 	{
-		"enable":
+		"spawn":
 		{
 			scale:1,
 			opacity:1
 		},
-		"disable":
+		"add":
 		{
-			scale:0,
-			opacity:0
+			scale:1,
+			opacity:1,
+			backgroundColor:"#1DD1A1"
+		},
+		"edit":
+		{
+			scale:1,
+			opacity:1,
+			backgroundColor:"#54A0FF"
 		}
+	}
+
+	const handleButtonBehaviour = () =>
+	{
+		if(editMode) finishEditTicket();
+		else addTicket();
 	}
 
 	return (
 		<motion.button
-			initial={BTN_STATE.ENABLE}
-			animate={enable?BTN_STATE.ENABLE:BTN_STATE.DISABLE}
-			exit={BTN_STATE.DISABLE}
+			initial={BTN_STATE.SPAWN}
+			animate={editMode?BTN_STATE.EDIT:BTN_STATE.ADD}
 			transition={{
 				duration:0.15,
 				ease:"easeInOut"
 			}}
 			variants={variants} 
-			onClick={addTicket} 
+			onClick={handleButtonBehaviour} 
 			className="list-button-add"
 		>
-			<Icon className="list-button-add-icon" icon="mingcute:add-fill" />
+			<Icon className="list-button-add-icon" icon={editMode?"iconamoon:check-bold":"mingcute:add-fill"} />
 		</motion.button>
 	);
 };

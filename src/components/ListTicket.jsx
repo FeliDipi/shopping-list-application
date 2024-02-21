@@ -19,7 +19,7 @@ const ListTicket = ({ticket}) =>
 			dragListener={state===TICKET_STATE.NORMAL}
 			
 			onDragEnd={handleDrag}
-			onPointerDown={handleInteract}
+			onClick={handleInteract}
 
 			animate={state}
 

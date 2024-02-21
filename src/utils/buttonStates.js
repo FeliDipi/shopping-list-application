@@ -1,4 +1,5 @@
 export const BTN_STATE = {
-    ENABLE : "enable",
-    DISABLE: "disable"
+    SPAWN : "spawn",
+    ADD: "add",
+    EDIT: "edit"
 }

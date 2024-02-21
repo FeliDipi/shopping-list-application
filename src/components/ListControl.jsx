@@ -9,7 +9,7 @@ const ListControl = () =>
 	return (
 		<main className="list-control">
 			<ListInput/>
-			<ListButtonAdd enable={!ticketOnEdit}/>
+			<ListButtonAdd editMode={ticketOnEdit !== null}/>
 		</main>
 	);
 };
