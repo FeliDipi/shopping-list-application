@@ -1,65 +1,58 @@
-import { useRef, useState } from "react";
 import { useShoppingList } from "./useShoppingList.js";
+import { TICKET_STATE } from "../utils/ticketStates.js";
+import { useState } from "react";
 
-const TICKET_STYLES = {
-    NORMAL:"list-ticket",
-    SPENT: "list-ticket list-ticket-spent",
-    EDIT: "list-ticket list-ticket-edit"
-}
+export const useTickets = (ticket) =>
+{  
+    const { isSpent } = ticket; 
+    const { updateTicket, editTicket, removeTicket } = useShoppingList();
 
-export const useTickets = ({ticket}) =>
-{    
-    const { updateTicket, editTicket, ticketOnEdit } = useShoppingList();
+	const [state, setState] = useState(isSpent?TICKET_STATE.SPENT:TICKET_STATE.NORMAL);
 
-    const onEdit = ticketOnEdit && ticketOnEdit.id === ticket.id;
-    const {isSpent} = ticket; 
-
-	const [longPressed, setLongPressed] = useState(false);
-	const timerRef = useRef(null);
-
-    const currentStyle = () =>
-    {
-        if(isSpent) return TICKET_STYLES.SPENT;
-
-        if(onEdit) return TICKET_STYLES.EDIT;
-
-        return TICKET_STYLES.NORMAL;
-    }
+	const isOnEdit = () =>
+	{
+		return state === TICKET_STATE.EDIT;
+	}
 
 	const handleInteract = () =>
 	{
-		if(isSpent) return;
-
-		timerRef.current = setTimeout(() => {
-			setLongPressed(true);
-			editTicket(ticket);
-		}, 500);
+		if(isOnEdit()) resetEditState();	
 	};
 
-	const handleStopInteract = () =>
+	const handleSpent = () =>
 	{
-		clearTimeout(timerRef.current);
-
-		if(longPressed)
-		{
-			setLongPressed(false);
-			return;
-		}
-
-		if(onEdit)
-		{
-			editTicket(null);
-			return;
-		}
-
 		const newTicketData = {...ticket, isSpent:!isSpent};
 		updateTicket(newTicketData);
 
-	};
+		setState(newTicketData.isSpent?TICKET_STATE.SPENT:TICKET_STATE.NORMAL);
+	}
+
+	const resetEditState = () =>
+	{
+		editTicket(null);
+		setState(TICKET_STATE.NORMAL);
+	}
+
+	const handleEdit = () =>
+	{
+		editTicket(ticket);
+		setState(TICKET_STATE.EDIT);
+	}
+
+	const handleRemove = () =>
+	{
+		removeTicket(ticket);
+	}
+
+	const handleDrag = (event, info) =>{
+		if(info.offset.x < -200) handleEdit();
+		else if(info.offset.x > 200)  handleRemove();
+	}
 
     return {
-        ticketStyle:currentStyle(),
-        handleInteract,
-        handleStopInteract
+		state,
+		handleSpent,
+		handleInteract,
+		handleDrag
     }
 }

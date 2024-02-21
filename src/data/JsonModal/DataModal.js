@@ -11,6 +11,6 @@ export class DataModal extends IDataModal
     saveData(data)
     {
         //Just show the new data object
-        console.log(data);
+        // console.log(data);
     }
 }

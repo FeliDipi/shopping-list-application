@@ -29,6 +29,7 @@
     --color-2: #1DD1A1;
     --color-3: #54A0FF;
     --color-4: #FF6B6B;
+    --color-5: #eee;
 
     --background-color-0: rgb(200, 214, 229,0.5);
     --background-color-1: rgba(34, 47, 62, 0.75);
@@ -49,21 +50,15 @@ body
     justify-content: center;
     align-items: top;
 
-    width: 100%;
     height: 100vh;
-
-    overflow: hidden;
 }
 
 .list-app
 {
-    width: 100%;
     height: 100%;
 
     display: flex;
     flex-direction: column;
-    justify-content: top;
-    align-items: center;
 
     padding: 1rem;
     gap: 1rem;
@@ -78,13 +73,13 @@ body
     align-items: center;
 
     gap: 1rem;
-
-    width: 100%;
 }
 
 .list-menu-button
 {
-    min-width: 60px;
+    width: 100%;
+    
+    max-width: 60px;
     height: 60px;
 
     border: none;
@@ -94,24 +89,12 @@ body
     backdrop-filter: var(--background-blur);
 
     box-shadow: var(--box-shadow);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.list-menu-button-icon
-{
-    width: 25px;
-    height: 25px;
-
-    color:var(--color-0);
 }
 
 .list-menu
 {
-    height: 100%;
     width: 100%;
+    height: 100%;
 
     border-radius: 25px;
 
@@ -146,6 +129,7 @@ body
 
     display: flex;
     flex-direction: column;
+
     justify-content: top;
     align-items: center;
 
@@ -155,15 +139,11 @@ body
     height: 75vh;
     width: 100%;
 
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 
 /* LIST TICKET */
-
-.scroll
-{
-    mask: linear-gradient(90deg,transparent,white 10%,white 90%,transparent);
-}
 
 .list-ticket
 {
@@ -173,11 +153,10 @@ body
 
     overflow: hidden;
 
-    width: 100%;
+    width: 350px;
+    padding: 0.75rem 1rem;
 
-    padding: 0.75rem 2rem;
-
-    border-radius: 25px;
+    border-radius: 15px;
 
     color:var(--color-1);
 
@@ -188,35 +167,12 @@ body
     box-shadow: var(--box-shadow);
 }
 
-.list-ticket-info
+.list-ticket-section
 {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 1rem;
-}
-
-.list-ticket-price
-{
-    font-weight: 500;
-}
-
-.list-ticket-edit
-{
-    transform: scale(0.95);
-    margin: 10px 0px;
-
-    background-color: var(--color-3);
-    color:var(--color-0);
-}
-
-.list-ticket-spent
-{
-    background-color: var(--color-2);
-    color:var(--color-0);
-}
-
-.list-ticket-spent .list-ticket-name
-{
-    text-decoration: line-through;
 }
 
 .list-ticket-name-container
@@ -232,6 +188,14 @@ body
 .list-ticket-name
 {
     white-space: nowrap;
+}
+
+.list-ticket-drag-icon
+{
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
 }
 
 /* FOOTER */

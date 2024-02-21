@@ -1,16 +1,19 @@
+import { Reorder } from "framer-motion";
 import { useShoppingList } from "../hooks/useShoppingList.js";
 import ListTicket from "./ListTicket.jsx";
 
 const List = () =>
 {
-	const {tickets} = useShoppingList();
+	const {tickets, setTickets} = useShoppingList();
 
 	return (
-		<ul className="list">
+		<Reorder.Group axis="y" values={tickets} onReorder={setTickets} className="list">
 			{
-				tickets.map(ticket => (<ListTicket key={ticket.id} ticket={ticket}/>))
+				tickets.map(ticket => (
+					<ListTicket key={ticket.id} ticket={ticket}/>
+				))
 			}
-		</ul>
+		</Reorder.Group>
 	);
 };
 

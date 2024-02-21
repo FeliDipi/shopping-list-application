@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import { DataModal } from "../data/LocalStorageModal/DataModal.js";
+import { DataModal } from "../data/JsonModal/DataModal.js";
 
 export const ShoppingListContext = createContext();
 
@@ -72,9 +72,9 @@ export const ShoppingListProvider = ({children}) =>
 		setTicketInput(newInput);
 	};
 
-	const removeTicket = () =>
+	const removeTicket = (ticket) =>
 	{
-		const newTickets = tickets.filter(({id}) => ticketOnEdit.id !== id);
+		const newTickets = tickets.filter(({id}) => ticket.id !== id);
 
 		setTickets(newTickets);
 		setTicketInput(blankTicket);
@@ -102,6 +102,7 @@ export const ShoppingListProvider = ({children}) =>
 			editTicket,
 			removeTicket,
 			setTicketInput,
+			setTickets,
 			finishEditTicket
 		}}>
 			{children}
