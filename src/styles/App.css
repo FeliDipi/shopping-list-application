@@ -116,17 +116,19 @@
     }
 }
 
-.scroll 
+.scroll
 {
-    animation: scrollLeft 10s linear infinite; /* Ajusta la velocidad de desplazamiento según necesites */
+    mask: linear-gradient(90deg,transparent,white 10%,white 90%,transparent);
+}
+
+.scroll .list-ticket-name
+{
+    animation: scrollLeft 15s linear infinite; /* Ajusta la velocidad de desplazamiento según necesites */
 }
 
 @keyframes scrollLeft {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-100%);
+    to {
+        transform: translateX(-50%);
     }
 }
 
@@ -191,7 +193,7 @@
 {
     position: relative;
 
-    width: 150px;
+    max-width: 150px;
 
     display: flex;
     overflow: hidden;

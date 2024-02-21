@@ -12,11 +12,11 @@ const TextAutoScroll = ({children}) =>
         const container = containerRef.current;
         const content = contentRef.current;
 
-        content.classList.remove("scroll");
+        container.classList.remove("scroll");
 
         if(content.scrollWidth  > container.clientWidth)
         {
-            content.classList.add("scroll");
+            container.classList.add("scroll");
         }
 
     },[children]);
