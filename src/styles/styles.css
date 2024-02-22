@@ -44,9 +44,8 @@
 body
 {
     background-image: url(../assets/images/background.jpg);
-    background-position: top;
     background-repeat: no-repeat;
-    background-size: 150%;
+    background-size: cover;
 
     display: flex;
     justify-content: center;
