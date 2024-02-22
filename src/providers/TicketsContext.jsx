@@ -24,10 +24,10 @@ export const TicketsProvider = ({children}) =>
 		if(!ticketInfo || !validTicket(ticketInfo)) return;
 
 		const newTicket = {id:generateUnitId(),isSpent:false,...ticketInfo};
-
 		const newTickets = [newTicket, ...tickets];
-		
+
 		setTickets(newTickets);
+		dataModal.saveData(newTickets);
 	};
 
 	const updateTicket = (ticket) =>
@@ -49,12 +49,19 @@ export const TicketsProvider = ({children}) =>
 		const newTickets = tickets.filter(({id}) => id !== ticket.id);
 
 		setTickets(newTickets);
+		dataModal.saveData(newTickets);
 	};
+
+	const orderTickets = (newTickets) =>
+	{
+		setTickets(newTickets);
+		dataModal.saveData(newTickets);
+	}
 
 	return (
 		<TicketsContext.Provider value={{
 			tickets,
-			setTickets,
+			orderTickets,
 			addTicket,
 			updateTicket,
 			removeTicket,

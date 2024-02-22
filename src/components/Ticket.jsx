@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 import { useTicketHandle } from "../hooks/useTicketHandle.js"
 import { TICKET_VARIANTS } from "../utils/ticketStates.js";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const Ticket = ({ticket}) =>
 {
@@ -28,7 +28,7 @@ const Ticket = ({ticket}) =>
 			initial={TICKET_VARIANTS.normal}
 			animate={state}
 			variants={TICKET_VARIANTS}
-			
+
 			drag
 			dragDirectionLock
 			dragConstraints={{left:0,right:0}}

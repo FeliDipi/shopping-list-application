@@ -5,10 +5,10 @@ import { useTicketEdit } from "../hooks/useTicketEdit.js";
 
 const TicketList = () =>
 {
-	const {tickets,setTickets} = useTickets();
+	const {tickets,orderTickets} = useTickets();
 
 	return (
-		<Reorder.Group axis="y" values={tickets} onReorder={setTickets} className="list">
+		<Reorder.Group axis="y" values={tickets} onReorder={orderTickets} className="list">
 			{
 				tickets.map(ticket => (
 					<Ticket key={ticket.id} ticket={ticket}/>
