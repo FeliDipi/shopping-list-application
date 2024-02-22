@@ -1,11 +1,18 @@
 import { IDataModal } from "../IDataModal.js";
 
+const getData = () =>
+{
+    const ticketsRaw = localStorage.getItem("tickets");
+    const tickets = ticketsRaw?JSON.parse(ticketsRaw):[];
+
+    return tickets;
+}
+
 export class DataModal extends IDataModal
 {
     async create(data)
     {
-        const ticketsRaw = localStorage.getItem("tickets");
-        const tickets = ticketsRaw?JSON.parse(ticketsRaw):[];
+        const tickets = getData();
 
         const newTicket = {id:Math.random(),isSpent:false,...data};
         const newTickets = [newTicket,...tickets];
@@ -15,17 +22,12 @@ export class DataModal extends IDataModal
 
     async read()
     {
-        const ticketsRaw = localStorage.getItem("tickets");
-        const tickets = ticketsRaw?JSON.parse(ticketsRaw):[];
-
-        return tickets;
+        return getData();
     }
 
     async update(data)
     {
-        const ticketsRaw = localStorage.getItem("tickets");
-        const tickets = ticketsRaw?JSON.parse(ticketsRaw):[];
-
+        const tickets = getData();
         const ticketIndex = tickets.findIndex(ticket=>ticket.id === data.id);
 
         tickets[ticketIndex] = data;
@@ -35,9 +37,7 @@ export class DataModal extends IDataModal
 
     async delete(data)
     {
-        const ticketsRaw = localStorage.getItem("tickets");
-        const tickets = ticketsRaw?JSON.parse(ticketsRaw):[];
-
+        const tickets = getData();
         const newTickets = tickets.filter(ticket => ticket.id!==data);
 
         localStorage.setItem("tickets",JSON.stringify(newTickets));
