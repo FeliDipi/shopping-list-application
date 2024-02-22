@@ -1,30 +1,25 @@
 import { Reorder } from "framer-motion";
-import { useTickets } from "../hooks/useTickets.js"
 import { Icon } from "@iconify/react";
-import { TICKET_STATE, TICKET_VARIANTS } from "../utils/ticketStates.js";
 
-const ListTicket = ({ticket}) =>
+import { useTicketHandle } from "../hooks/useTicketHandle.js"
+import { TICKET_VARIANTS } from "../utils/ticketStates.js";
+
+const Ticket = ({ticket}) =>
 {
 	const {name, price, amount } = ticket;
 
-	const { state, handleInteract, handleSpent, handleDrag } = useTickets(ticket);
+	const { state, draggeable, handleSpent, handleDrag } = useTicketHandle({ticket});
 
 	return (
 		<Reorder.Item
 			value={ticket}
-
 			drag
 			dragDirectionLock
 			dragConstraints={{left:0,right:0}}
-			dragListener={state===TICKET_STATE.NORMAL}
-			
+			dragListener={draggeable}	
 			onDragEnd={handleDrag}
-			onClick={handleInteract}
-
 			animate={state}
-
 			variants={TICKET_VARIANTS}
-
 			className="list-ticket"
 		>
 			<div className="list-ticket-section">
@@ -43,4 +38,4 @@ const ListTicket = ({ticket}) =>
 	);
 };
 
-export default ListTicket;
+export default Ticket;

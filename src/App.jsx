@@ -1,15 +1,15 @@
 import Header from "./components/Header.jsx";
-import List from "./components/List.jsx";
+import TicketList from "./components/TicketList.jsx";
 import Footer from "./components/Footer.jsx";
-import ListControl from "./components/ListControl.jsx";
+import TicketControl from "./components/TicketControl.jsx";
 
 const App = () => {
 	return (
 		<main className="list-app">
 			<Header/>
-			<List/>
+			<TicketList/>
 			<Footer/>
-			<ListControl/>
+			<TicketControl/>
 		</main>
 	);
 };

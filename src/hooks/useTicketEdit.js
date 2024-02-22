@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import { ShoppingListContext } from "../providers/ShoppingListContext.jsx";
+import { TicketsEditContext } from "../providers/TicketsEditContext.jsx";
 
-export const useShoppingList = () =>
+export const useTicketEdit = () =>
 {
-	const context = useContext(ShoppingListContext);
+	const context = useContext(TicketsEditContext);
 
 	if(context === undefined)
 	{
@@ -11,4 +11,4 @@ export const useShoppingList = () =>
 	}
 
 	return context;
-};
+}

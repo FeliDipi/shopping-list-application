@@ -1,8 +1,8 @@
-import { useShoppingList } from "../hooks/useShoppingList.js";
+import { useTickets } from "../hooks/useTickets.js";
 
 const Footer = () =>
 {
-	const {tickets} = useShoppingList();
+	const {tickets} = useTickets();
 
 	var estimatedValue = 0;
 	var spentValue = 0;

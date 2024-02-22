@@ -1,12 +1,12 @@
-import ListMenuButton from "./ListMenuButton.jsx";
-import ListMenu from "./ListMenu.jsx";
+import MenuButton from "./MenuButton.jsx";
+import Menu from "./Menu.jsx";
 
 const Header = () =>
 {
 	return (
 		<header className="list-header">
-			<ListMenuButton/>
-			<ListMenu/>
+			<MenuButton/>
+			<Menu/>
 		</header>
 	);
 };

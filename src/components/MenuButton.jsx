@@ -1,4 +1,4 @@
-const ListMenuButton = () =>
+const MenuButton = () =>
 {
 	return (
 		<button className='list-menu-button'>
@@ -6,4 +6,4 @@ const ListMenuButton = () =>
 	);
 };
 
-export default ListMenuButton;
+export default MenuButton;

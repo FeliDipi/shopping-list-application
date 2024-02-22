@@ -1,4 +1,4 @@
-const ListMenu = () =>
+const Menu = () =>
 {
 	return (
 		<div className="list-menu">
@@ -7,4 +7,4 @@ const ListMenu = () =>
 	);
 };
 
-export default ListMenu;
+export default Menu;
