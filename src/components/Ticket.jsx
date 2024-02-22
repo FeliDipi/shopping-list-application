@@ -2,7 +2,7 @@ import { Reorder, motion } from "framer-motion";
 import { Icon } from "@iconify/react";
 
 import { useTicketHandle } from "../hooks/useTicketHandle.js"
-import { TICKET_VARIANTS } from "../utils/ticketStates.js";
+import { TICKET_STATE, TICKET_VARIANTS } from "../utils/ticketStates.js";
 import { useEffect, useRef } from "react";
 
 const Ticket = ({ticket}) =>
@@ -11,6 +11,11 @@ const Ticket = ({ticket}) =>
 
 	const {name, price, amount } = ticket;
 	const { state, draggeable, handleSpent, handleDrag } = useTicketHandle({ticket});
+
+	const icon = state === TICKET_STATE.SPENT?
+					"icon-park-solid:shopping-cart-del":
+					"icon-park-solid:shopping-cart-add";
+
 
 	useEffect(()=>{
 
@@ -51,7 +56,7 @@ const Ticket = ({ticket}) =>
 				<Icon
 					onPointerDown={handleSpent} 
 					className="list-ticket-drag-icon" 
-					icon="fluent:cart-24-filled" 
+					icon={icon}
 				/>
 			</div>
 		</Reorder.Item>

@@ -83,6 +83,7 @@ body
     background-color: var(--background-color-0);
     backdrop-filter: var(--background-blur);
     box-shadow: var(--box-shadow);
+    border: solid 1px #ccc;
 }
 
 .list-header-title
@@ -93,6 +94,7 @@ body
 
     background-color: var(--color-0);
     box-shadow: var(--box-shadow);
+
     border-radius: 10px;
 
     width: 100%;
@@ -111,6 +113,7 @@ body
 .list
 {
     border-radius: 15px;
+    border: solid 1px #ccc;
 
     background-color: var(--background-color-0);
     backdrop-filter: var(--background-blur);
@@ -202,19 +205,48 @@ body
 .list-footer
 {
     border-radius: 15px;
+    border: solid 1px #ccc;
 
-    background-color: var(--background-color-1);
+    background-color: var(--background-color-0);
     backdrop-filter: var(--background-blur);
 
     box-shadow: var(--box-shadow);
 
-    display: grid;
+    display: flex;
     justify-content: center;
     align-items: center;
 
-    padding: 1.5rem;
+    gap: 1rem;
+
+    padding: 1rem;
 
     width: 100%;
+}
+
+.list-footer-section
+{
+    width: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 1rem;
+    padding: 0.5rem;
+
+    background-color: var(--color-0);
+    box-shadow: var(--box-shadow);
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.list-footer-icon-estimated,
+.list-footer-icon-spent
+{
+    width: 30px;
+    height: 30px;
 }
 
 .list-footer-estimated,
@@ -222,16 +254,18 @@ body
 {
     text-align: center;
 
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.25rem;
 }
 
-.list-footer-estimated
+.list-footer-estimated,
+.list-footer-icon-estimated
 {
     color: var(--color-1);
 }
 
-.list-footer-spent
+.list-footer-spent,
+.list-footer-icon-spent
 {
     color:var(--color-2);
 }
@@ -256,6 +290,7 @@ body
 {
     width: 100%;
 
+    border: solid 1px #ccc;
     border-radius: 15px;
 
     background-color: var(--background-color-0);
@@ -312,6 +347,7 @@ input:focus
     width: 48px;
     height: 48px;
 
+    border: none;
     border-radius: 15px;
 
     display: flex;
@@ -320,8 +356,6 @@ input:focus
 
     background-color: var(--color-2);
     box-shadow: var(--box-shadow);
-
-    border: none;
 }
 
 .list-button-add-icon
@@ -335,5 +369,5 @@ input:focus
     align-items: center;
     justify-content: center;
 
-    border: none;
+    color: var(--color-0);
 }

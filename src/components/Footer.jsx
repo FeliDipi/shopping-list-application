@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import { useTickets } from "../hooks/useTickets.js";
 
 const Footer = () =>
@@ -21,8 +22,14 @@ const Footer = () =>
 
 	return (
 		<footer className="list-footer">
-			<p className="list-footer-estimated">Estimated: ${estimatedValue}</p>
-			<p className="list-footer-spent">Spent: ${spentValue}</p>
+			<div className="list-footer-section">
+				<Icon className="list-footer-icon-estimated" icon="mdi:cash-multiple" />
+				<p className="list-footer-estimated">{estimatedValue}</p>
+			</div>
+			<div className="list-footer-section">
+				<Icon className="list-footer-icon-spent" icon="mdi:cash-check" />
+				<p className="list-footer-spent">{spentValue}</p>
+			</div>
 		</footer>
 	);
 };
