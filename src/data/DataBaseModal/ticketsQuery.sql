@@ -1,3 +1,5 @@
+-- sql query, drop, creation and example operations
+
 DROP TABLE Tickets;
 
 CREATE TABLE Tickets (
@@ -8,7 +10,14 @@ CREATE TABLE Tickets (
     ticket_isSpent BOOLEAN DEFAULT False
 );
 
-INSERT INTO Tickets (ticket_name, ticket_price, ticket_amount) VALUES ("ejemplo db",1500,2);
-INSERT INTO Tickets (ticket_name, ticket_price, ticket_amount) VALUES ("ejemplo db 1",1000,3);
-INSERT INTO Tickets (ticket_name, ticket_price, ticket_amount) VALUES ("ejemplo db 2",750,1);
-INSERT INTO Tickets (ticket_name, ticket_price, ticket_amount) VALUES ("ejemplo db 3",300,5);
+-- new ticket creation
+INSERT INTO Tickets (ticket_name, ticket_price, ticket_amount) VALUES (?,?,?); 
+
+-- read tickets
+SELECT * FROM Tickets;
+
+-- update ticket
+UPDATE Tickets SET ticket_name = ? , ticket_price = ? , ticket_amount = ? , ticket_isSpent = ? WHERE ticket_id = ?;
+
+-- delete ticket
+DELETE FROM Tickets WHERE ticket_id = ?;
