@@ -14,48 +14,30 @@ export const TicketsProvider = ({children}) =>
 		setTickets(newTickets);
 	}
 
-	const validTicket = (ticketInfo) =>
+	const validTicket = async (ticketInfo) =>
 	{
 		const {name, price, amount} = ticketInfo;
 		return name.length>0 && price>0 && amount>0;
 	}
 
-	const generateUnitId = () =>
-	{
-		return Math.random();
-	}
-
-	const addTicket = (ticketInfo) =>
+	const addTicket = async (ticketInfo) =>
 	{
 		if(!ticketInfo || !validTicket(ticketInfo)) return;
 
-		const newTicket = {id:generateUnitId(),isSpent:false,...ticketInfo};
-		const newTickets = [newTicket, ...tickets];
-
-		setTickets(newTickets);
-		dataModal.update(newTickets);
+		await dataModal.create(ticketInfo);
+		loadTickets();
 	};
 
-	const updateTicket = (ticket) =>
+	const updateTicket = async (ticket) =>
 	{
-		const ticketIndex = tickets.findIndex(({id}) => id === ticket.id);
-
-		if(ticketIndex>=0)
-		{
-			const newTickets = [...tickets];
-			newTickets[ticketIndex] = ticket;
-	
-			setTickets(newTickets);
-			dataModal.update(newTickets);
-		}
+		await dataModal.update(ticket);
+		loadTickets();
 	}
 
-	const removeTicket = (ticket) =>
+	const removeTicket = async (ticket) =>
 	{
-		const newTickets = tickets.filter(({id}) => id !== ticket.id);
-
-		setTickets(newTickets);
-		dataModal.update(newTickets);
+		await dataModal.delete(ticket.id);
+		loadTickets();
 	};
 
 	const orderTickets = (newTickets) =>

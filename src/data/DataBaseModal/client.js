@@ -30,7 +30,7 @@ export const updateDB = async ({ticket}) =>
     const {id,name,price,amount,isSpent} = ticket;
 
     const response = await client.execute({
-        sql:`UPDATE Tickets SET ticket_name = ? , ticket_price = ? , ticket_amount = ? ticket_isSpent = ? WHERE ticket_id = ?`,
+        sql:`UPDATE Tickets SET ticket_name = ? , ticket_price = ? , ticket_amount = ? , ticket_isSpent = ? WHERE ticket_id = ?`,
         args:[name,price,amount,isSpent,id]
     })
 

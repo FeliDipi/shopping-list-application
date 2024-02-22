@@ -1,9 +1,12 @@
 import { IDataModal } from "../IDataModal.js";
-import { readDB } from "./client.js";
+import { createDB, readDB, updateDB, deleteDB } from "./client.js";
 
 export class DataModal extends IDataModal
 {
-    async create(data){}
+    async create(data)
+    {
+        await createDB({...data});
+    }
 
     async read()
     {
@@ -13,9 +16,16 @@ export class DataModal extends IDataModal
 			({id:ticket_id,name:ticket_name,price:ticket_price,amount:ticket_amount,isSpent:ticket_isSpent})
         );
 
-        return tickets;
+        return tickets.reverse();
     }
 
-    async update(data){}
-    async delete(data){}
+    async update(data)
+    {
+        await updateDB({ticket:data});
+    }
+
+    async delete(data)
+    {
+        await deleteDB({id:data});
+    }
 }
