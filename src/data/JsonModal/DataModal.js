@@ -3,14 +3,13 @@ import { tickets } from "./tickets.json";
  
 export class DataModal extends IDataModal
 {
-    fetchData()
+    async create(data){}
+
+    async read()
     {
         return tickets;
     }
 
-    saveData(data)
-    {
-        //Just show the new data object
-        // console.log(data);
-    }
+    async update(data){}
+    async delete(data){}
 }

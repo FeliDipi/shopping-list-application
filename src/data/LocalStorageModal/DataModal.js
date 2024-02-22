@@ -2,7 +2,9 @@ import { IDataModal } from "../IDataModal.js";
 
 export class DataModal extends IDataModal
 {
-    fetchData()
+    async create(data){}
+
+    async read()
     {
         const ticketsRaw = localStorage.getItem("tickets");
 
@@ -11,8 +13,10 @@ export class DataModal extends IDataModal
         return tickets;
     }
 
-    saveData(data)
+    async update(data)
     {
         localStorage.setItem("tickets",JSON.stringify(data));
     }
+
+    async delete(data){}
 }

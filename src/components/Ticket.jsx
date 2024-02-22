@@ -21,7 +21,7 @@ const Ticket = ({ticket}) =>
 
 		if(nameElement.current && nameElement.current.scrollWidth > nameElement.current.clientWidth)
 		{
-			console.log("Ticket with a longer name");
+			
 		}
 
 	},[])

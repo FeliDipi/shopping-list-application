@@ -1,5 +1,7 @@
 export class IDataModal 
 {
-    fetchData(){}
-    saveData(data){}
+    async create(data){}
+    async read(){}
+    async update(data){}
+    async delete(data){}
 }

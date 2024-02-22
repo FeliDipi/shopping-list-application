@@ -1,12 +1,18 @@
-import { createContext, useState } from "react";
-import { DataModal } from "../data/JsonModal/DataModal.js";
+import { createContext, useEffect, useState } from "react";
+import { DataModal } from "../data/DataBaseModal/DataModal.js";
 
 export const TicketsContext = createContext();
 
 export const TicketsProvider = ({children}) =>
 {
 	const dataModal = new DataModal();
-	const [tickets, setTickets] = useState(dataModal.fetchData());
+	const [tickets, setTickets] = useState([]);
+
+	const loadTickets = async () =>
+	{
+		const newTickets = await dataModal.read();
+		setTickets(newTickets);
+	}
 
 	const validTicket = (ticketInfo) =>
 	{
@@ -27,7 +33,7 @@ export const TicketsProvider = ({children}) =>
 		const newTickets = [newTicket, ...tickets];
 
 		setTickets(newTickets);
-		dataModal.saveData(newTickets);
+		dataModal.update(newTickets);
 	};
 
 	const updateTicket = (ticket) =>
@@ -40,7 +46,7 @@ export const TicketsProvider = ({children}) =>
 			newTickets[ticketIndex] = ticket;
 	
 			setTickets(newTickets);
-			dataModal.saveData(newTickets);
+			dataModal.update(newTickets);
 		}
 	}
 
@@ -49,14 +55,18 @@ export const TicketsProvider = ({children}) =>
 		const newTickets = tickets.filter(({id}) => id !== ticket.id);
 
 		setTickets(newTickets);
-		dataModal.saveData(newTickets);
+		dataModal.update(newTickets);
 	};
 
 	const orderTickets = (newTickets) =>
 	{
 		setTickets(newTickets);
-		dataModal.saveData(newTickets);
+		dataModal.update(newTickets);
 	}
+
+	useEffect(()=>{
+		loadTickets();
+	},[])
 
 	return (
 		<TicketsContext.Provider value={{
