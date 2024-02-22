@@ -189,21 +189,16 @@ body
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
-}
 
-.list-ticket-name-container
-{
-    position: relative;
-
-    max-width: 150px;
-
-    display: flex;
     overflow: hidden;
+
+    gap: 1rem;
 }
 
 .list-ticket-name
 {
+    max-width: 150px;
+    overflow: hidden;
     white-space: nowrap;
 }
 
