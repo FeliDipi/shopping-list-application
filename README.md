@@ -1,8 +1,9 @@
-# React + Vite
+# Shopping List Web Application, React + Vite + Turso + Framer-Motion + Iconify
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Autor: Nicolás Felipe Dipierro
 
-Currently, two official plugins are available:
+This is a personal, non-profit project, with the objective of learning and following to perfect good development practices.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Full-stack development, using one of the top technologies in the industry React in the front-end, animations using Framer-Motion and design using Figma.
+
+For the back-end, creation of the database from scratch and deployment of it using Turso services, an SQL file is available with example operations used.
