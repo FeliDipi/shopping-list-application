@@ -10,7 +10,7 @@ const TicketListInfo = () =>
 
 	tickets.forEach(ticket =>
 	{
-		var productValue =ticket.price*ticket.amount;
+		var productValue = ticket.price*ticket.amount;
 
 		estimatedValue+=productValue;
 

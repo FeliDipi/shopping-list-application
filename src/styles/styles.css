@@ -143,12 +143,28 @@ body
 .list-ticket-name
 {
     max-width: 150px;
+}
+
+.list-ticket-name,
+.list-ticket-price
+{
+    max-width: 100px;
+}
+
+.list-ticket-name,
+.list-ticket-price,
+.list-ticket-amount
+{
     overflow: hidden;
+
     white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .list-ticket-drag-icon
 {
+    min-width: 20px;
+
     width: 20px;
     height: 20px;
 
@@ -207,7 +223,13 @@ body
 .list-footer-estimated,
 .list-footer-spent
 {
+    max-width: 100px;
+
     text-align: center;
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     font-weight: 500;
     font-size: 1.25rem;
