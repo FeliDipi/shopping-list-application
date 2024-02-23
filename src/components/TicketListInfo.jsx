@@ -1,7 +1,7 @@
 import { Icon } from "@iconify/react";
 import { useTickets } from "../hooks/useTickets.js";
 
-const Footer = () =>
+const TicketListInfo = () =>
 {
 	const {tickets} = useTickets();
 
@@ -34,4 +34,4 @@ const Footer = () =>
 	);
 };
 
-export default Footer;
+export default TicketListInfo;

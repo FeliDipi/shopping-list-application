@@ -1,14 +1,12 @@
-import Header from "./components/Header.jsx";
 import TicketList from "./components/TicketList.jsx";
-import Footer from "./components/Footer.jsx";
+import TicketListInfo from "./components/TicketListInfo.jsx";
 import TicketControl from "./components/TicketControl.jsx";
 
 const App = () => {
 	return (
 		<main className="list-app">
-			<Header/>
+			<TicketListInfo/>
 			<TicketList/>
-			<Footer/>
 			<TicketControl/>
 		</main>
 	);
