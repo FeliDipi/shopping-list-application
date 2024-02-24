@@ -7,7 +7,7 @@ const TicketList = () =>
 	const {tickets,orderTickets} = useTickets();
 
 	return (
-		<Reorder.Group axis="y" values={tickets} onReorder={orderTickets} className="list">
+		<Reorder.Group axis="y" values={tickets} onReorder={orderTickets} className="tickets-list background-blur center top separation">
 			{
 				tickets.map(ticket => (
 					<Ticket key={ticket.id} ticket={ticket}/>

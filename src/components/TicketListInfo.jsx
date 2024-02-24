@@ -21,14 +21,14 @@ const TicketListInfo = () =>
 	});
 
 	return (
-		<footer className="list-footer">
-			<div className="list-footer-section">
-				<Icon className="list-footer-icon-estimated" icon="mdi:cash-multiple" />
-				<p className="list-footer-estimated">{estimatedValue}</p>
+		<footer className="tickets-info background-blur center separation">
+			<div className="tickets-info-section background center">
+				<Icon className="tickets-info-icon-estimated" icon="mdi:cash-multiple" />
+				<p className="tickets-info-estimated">{estimatedValue}</p>
 			</div>
-			<div className="list-footer-section">
-				<Icon className="list-footer-icon-spent" icon="mdi:cash-check" />
-				<p className="list-footer-spent">{spentValue}</p>
+			<div className="tickets-info-section background center">
+				<Icon className="tickets-info-icon-spent" icon="mdi:cash-check" />
+				<p className="tickets-info-spent">{spentValue}</p>
 			</div>
 		</footer>
 	);

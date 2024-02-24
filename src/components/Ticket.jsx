@@ -27,17 +27,17 @@ const Ticket = ({ticket}) =>
 			dragListener={draggeable}
 			onDragEnd={handleDrag}
 
-			className="list-ticket"
+			className="ticket background center"
 		>
-			<div className="list-ticket-section">
-				<p className="list-ticket-name">{name}</p>
-				<p className="list-ticket-amount">x{amount}</p>
+			<div className="ticket-section center">
+				<p className="ticket-name">{name}</p>
+				<p className="ticket-amount">x{amount}</p>
 			</div>
-			<div className="list-ticket-section">
-				<p className="list-ticket-price">${price*amount}</p>
+			<div className="ticket-section center">
+				<p className="ticket-price">${price*amount}</p>
 				<Icon
 					onPointerDown={handleSpent} 
-					className="list-ticket-drag-icon" 
+					className="ticket-drag-icon" 
 					icon={icon}
 				/>
 			</div>

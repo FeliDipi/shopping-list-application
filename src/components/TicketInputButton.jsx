@@ -28,7 +28,7 @@ const TicketInputButton = () =>
 			}}
 			variants={BTN_VARIANTS} 
 			onClick={handleButtonBehaviour} 
-			className="list-button-add"
+			className="tickets-input-button center"
 		>
 			<Icon className="list-button-add-icon" icon={ticketOnEdit?"iconamoon:check-bold":"mingcute:add-fill"} />
 		</motion.button>

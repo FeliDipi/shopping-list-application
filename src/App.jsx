@@ -4,7 +4,7 @@ import TicketControl from "./components/TicketControl.jsx";
 
 const App = () => {
 	return (
-		<main className="list-app">
+		<main className="list-app center top separation">
 			<TicketListInfo/>
 			<TicketList/>
 			<TicketControl/>

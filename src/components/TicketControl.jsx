@@ -4,7 +4,7 @@ import TicketInput from "./TicketInput.jsx";
 const TicketControl = () =>
 {
 	return (
-		<main className="list-control">
+		<main className="tickets-control center">
 			<TicketInput/>
 			<TicketInputButton/>
 		</main>
