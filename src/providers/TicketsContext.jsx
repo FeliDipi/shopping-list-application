@@ -43,7 +43,6 @@ export const TicketsProvider = ({children}) =>
 	const orderTickets = (newTickets) =>
 	{
 		setTickets(newTickets);
-		dataModal.update(newTickets);
 	}
 
 	useEffect(()=>{
